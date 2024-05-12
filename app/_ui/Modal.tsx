@@ -1,4 +1,5 @@
 "use client";
+
 import { useSearchParams } from "next/navigation";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
@@ -10,7 +11,6 @@ const options: StripeJS.StripeElementsOptions = {
   mode: "payment",
   amount: 1099,
   currency: "usd",
-  payment_method_types: ["card"],
 };
 
 type Props = {

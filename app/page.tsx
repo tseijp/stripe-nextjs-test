@@ -1,13 +1,14 @@
 import { use } from "react";
 import Card from "./_ui/Card";
-import type Stripe from "stripe";
 import Modal from "./_ui/Modal";
 import Button from "./_ui/Button";
 import Payment from "./_ui/Payment";
+import type Stripe from "stripe";
 
 const Products = () => {
   const res = fetch("http://localhost:3000/api/products");
   const products = use(res.then((res) => res.json())) as Stripe.Product[];
+
   return (
     <>
       {products.map((product) => (
@@ -23,6 +24,7 @@ const Products = () => {
 const Customers = () => {
   const res = fetch("http://localhost:3000/api/customers");
   const customers = use(res.then((res) => res.json())) as Stripe.Customer[];
+
   return (
     <>
       {customers.map((customer) => (
