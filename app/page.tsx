@@ -1,27 +1,51 @@
 import { use } from "react";
+import Card from "./_ui/Card";
+import type Stripe from "stripe";
+import Modal from "./_ui/Modal";
+import Button from "./_ui/Button";
+import Payment from "./_ui/Payment";
 
 const Products = () => {
-  const res = fetch("http://localhost:3000/api/").then((res) => res.json());
-  const products = use(res) as any[];
-
+  const res = fetch("http://localhost:3000/api/products");
+  const products = use(res.then((res) => res.json())) as Stripe.Product[];
   return (
     <>
       {products.map((product) => (
-        <div key={product.id}>
-          <h3>{product.name}</h3>
-          <p>{product.description}</p>
+        <Card key={product.id} target={product}>
           <img src={product.images[0]} alt={product.name} />
-        </div>
+          <Button href={`?id=${product.id}`}>Pay</Button>
+        </Card>
       ))}
     </>
   );
-}
+};
+
+const Customers = () => {
+  const res = fetch("http://localhost:3000/api/customers");
+  const customers = use(res.then((res) => res.json())) as Stripe.Customer[];
+  return (
+    <>
+      {customers.map((customer) => (
+        <Card key={customer.id} target={customer}>
+          <Button href={`?id=${customer.id}`}>Pay</Button>
+        </Card>
+      ))}
+    </>
+  );
+};
+
 export default async function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
+    <>
+      <div className="z-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         <Products />
       </div>
-    </main>
+      <div className="z-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <Customers />
+      </div>
+      <Modal>
+        <Payment />
+      </Modal>
+    </>
   );
 }

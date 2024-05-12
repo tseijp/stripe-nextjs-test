@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+import { Inter } from "next/font/google";
+import type { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,9 +18,29 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <header className="fixed z-20 w-full bg-transparent backdrop-filter backdrop-blur-lg">
+          <nav className="flex justify-between items-center p-4">
+            <h1 className="text-2xl font-bold">
+              <Link href="/">Stripe Next Test</Link>
+            </h1>
+            <ul className="flex gap-4">
+              <li>
+                <Link href="/">Home</Link>
+              </li>
+              <li>
+                <Link href="/">About</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <main className="flex flex-col gap-16 min-h-[100dvh] m-auto py-16 w-[80%]">
           {children}
         </main>
+        <footer className="z-20 w-full h-32 bg-gray-800 rounded-t-[4rem]">
+          <p className="text-center p-4 leading-[64px] text-white">
+            © {new Date().getFullYear()} Stripe Next Test
+          </p>
+        </footer>
       </body>
     </html>
   );

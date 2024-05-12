@@ -31,3 +31,18 @@ body {
     text-wrap: balance;
   }
 }
+
+@layer components {
+  .overlay-visible {
+    @apply opacity-100 pointer-events-auto;
+  }
+  .overlay-hidden {
+    @apply opacity-0 pointer-events-none;
+  }
+  .container-visible {
+    @apply lg:translate-x-[50%] translate-x-[3%];
+  }
+  .container-hidden {
+    @apply translate-x-[150%];
+  }
+}
