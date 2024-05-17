@@ -127,6 +127,16 @@
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
+"@stripe/connect-js@^3.3.5":
+  version "3.3.5"
+  resolved "https://registry.yarnpkg.com/@stripe/connect-js/-/connect-js-3.3.5.tgz#cb9344e519d39c9397f180b74e31912eac251fe4"
+  integrity sha512-wPr5y5XxSsXAbyonSz6jWsZru62PYOoTxNDxVH467+1PgiYSBqq0jvBItGzI/2bGFe89GTcY/kwqABe0Qg3orw==
+
+"@stripe/react-connect-js@^3.3.7":
+  version "3.3.7"
+  resolved "https://registry.yarnpkg.com/@stripe/react-connect-js/-/react-connect-js-3.3.7.tgz#f784e1a3f1bffec87c1c7c26db187397c15066d2"
+  integrity sha512-TM7OVXFv1Ed24x76VtmHvN1mfDsMVmJOzhDpFSRY/o4vegwnmmkfRD6OOEIBSaSXDagYZUgqGkKqEmss1lozKg==
+
 "@stripe/react-stripe-js@^2.7.1":
   version "2.7.1"
   resolved "https://registry.yarnpkg.com/@stripe/react-stripe-js/-/react-stripe-js-2.7.1.tgz#2be66166318fcb898c67a19e5b342364a2714d57"

@@ -11,11 +11,13 @@ export const metadata: Metadata = {
 };
 
 type Props = {
+  customers: React.ReactNode;
+  products: React.ReactNode;
   children: React.ReactNode;
 };
 
 export default function RootLayout(props: Props) {
-  const { children } = props;
+  const { customers, products, children } = props;
 
   return (
     <html lang="en">
@@ -36,6 +38,12 @@ export default function RootLayout(props: Props) {
           </nav>
         </header>
         <main className="flex flex-col gap-16 min-h-[100dvh] m-auto py-16 w-[80%]">
+          <div className="z-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {products}
+          </div>
+          <div className="z-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {customers}
+          </div>
           {children}
         </main>
         <footer className="z-20 w-full h-32 bg-gray-800 rounded-t-[4rem]">
